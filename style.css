@@ -1,18 +1,45 @@
 /* General */
+
+:root {
+  --primary-color: #8b7bff;       /* Muted periwinkle-violet */
+  --secondary-color: #5e4bff;     /* Rich royal blue accent */
+  --primary-dark: #3c2f99;        /* Deep indigo for contrast and hover */
+  --bg-light: #f5f4ff;            /* Very pale lavender background */
+  --bg-dark: #0e0c1a;             /* Nearly-black indigo for dark mode */
+  --text-light: #eceaff;          /* Soft lavender-white text for dark mode */
+  --text-dark: #1b1630;           /* Deep slate-purple text for light mode */
+  --card-light: #f8f9fa;          /* neutral light card (unchanged) */
+  --card-dark: #4a5791;           /* dark blue card for contrast */
+  --border-light: #dddcee;        /* gentle lavender-gray border */
+  --border-dark: #1a1f3d;         /* deep indigo border */
+  --link-hover: #b8c7ff;          /* subtle icy blue highlight */
+}
+
 body {
-  background: linear-gradient(to bottom, #111827, #000, #111827);
-  color: #d1d5db;
+  background: linear-gradient(to bottom, var(--bg-light), var(--card-light), var(--border-light));
+  color: var(--text-dark);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
+#swirlCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+
 /* Header */
 header {
   backdrop-filter: blur(8px);
-  background-color: rgba(0, 0, 0, 0.4);
-  border-bottom: 1px solid #374151;
+  background-color: rgba(F, F, F, 0.4);
+  border-bottom: 1px solid #FFF;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -26,43 +53,47 @@ header {
   align-items: center;
 }
 header h1 {
-  color: #22d3ee;
+  color: var(--primary-color);
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 0.15em;
 }
 header nav a {
-  color: #d1d5db;
+  color: var(--secondary-color);
   margin: 0 1rem;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 header nav a:hover {
-  color: #22d3ee;
+  color: var(--link-hover);
 }
 
 /* Hero Section */
 #hero {
-  background: radial-gradient(circle at center, rgba(0,255,255,0.15), transparent 70%), linear-gradient(to bottom, #000, #111827);
+  background: linear-gradient(to bottom, var(--bg-light), #FFF);
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 8rem 1rem;
 }
 #hero h2 {
   font-size: 3rem;
-  color: #22d3ee;
+  color: var(--primary-dark);
   font-weight: 800;
   margin-bottom: 1rem;
 }
 #hero p {
-  color: #9ca3af;
+  color: var(--secondary_color);
   font-size: 1.2rem;
   max-width: 700px;
   margin: 0 auto 2rem;
 }
 .button {
   display: inline-block;
-  background: #06b6d4;
-  color: black;
+  background: var(--primary-color);
+  color: var(--text-light);
   padding: 0.75rem 2rem;
   border-radius: 9999px;
   font-weight: 600;
@@ -70,7 +101,7 @@ header nav a:hover {
   transition: background 0.3s, transform 0.2s;
 }
 .button:hover {
-  background: #22d3ee;
+  background: var(--bg-dark);
   transform: scale(1.05);
 }
 
@@ -82,49 +113,49 @@ header nav a:hover {
 }
 #about h3 {
   font-size: 2rem;
-  color: #22d3ee;
+  color: var(--primary-color);
   margin-bottom: 1rem;
 }
 #about p {
-  color: #e5e7eb;
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
 /* Projects */
 #projects {
-  background: linear-gradient(to bottom, #111827, #000);
+  background: linear-gradient(to bottom, var(--bg-light), #FFF);
   padding: 6rem 1.5rem;
 }
 #projects h3 {
   font-size: 2rem;
-  color: #22d3ee;
+  color: var(--primary-color);
   margin-bottom: 2rem;
 }
 .project {
-  background: #000;
-  border: 1px solid #374151;
+  background: var(--card-light);
+  border: 1px solid var(--primary-color);
   border-radius: 1rem;
   padding: 2rem;
   margin: 0 auto;
   max-width: 600px;
-  box-shadow: 0 0 10px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 10px rgba(133, 64, 186, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .project:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 15px rgba(133, 64, 186, 0.2);
 }
 .project h4 {
-  color: #67e8f9;
+  color: var(--primary-color);
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 .project p {
-  color: #9ca3af;
+  color: var(--text-dark);
   margin-bottom: 1rem;
 }
 .project a {
-  color: #22d3ee;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 500;
 }
@@ -140,20 +171,20 @@ header nav a:hover {
 }
 #contact h3 {
   font-size: 2rem;
-  color: #22d3ee;
+  color: var(--secondary-color);
   margin-bottom: 1rem;
 }
 #contact p {
-  color: #9ca3af;
+  color: var(--text-dark);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
 
 /* Footer */
 footer {
-  background: #000;
-  border-top: 1px solid #1f2937;
+  background: var(--bg-light);
+  border-top: 1px solid var(--card-dark);
   padding: 1.5rem;
-  color: #6b7280;
+  color: var(--text-dark);
   font-size: 0.9rem;
 }
