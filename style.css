@@ -131,6 +131,14 @@ header nav a:hover {
   color: var(--primary-color);
   margin-bottom: 2rem;
 }
+
+#projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
 .project {
   background: var(--card-light);
   border: 1px solid var(--primary-color);
@@ -178,6 +186,12 @@ header nav a:hover {
   color: var(--text-dark);
   margin-bottom: 2rem;
   line-height: 1.6;
+}
+
+#photo {
+  border-radius: 50%; 
+  max-width: 150px;
+  border: 2px solid var(--secondary-color);
 }
 
 /* Footer */
